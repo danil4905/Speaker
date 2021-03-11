@@ -37,14 +37,12 @@ const speaking = () => {
 };
 
 generateVoices();
-rate.addEventListener(
-  "change",
-  () => (document.querySelector(".rate-value").innerHTML = rate.value)
-);
-pitch.addEventListener(
-  "change",
-  () => (document.querySelector(".pitch-value").innerHTML = pitch.value)
-);
+rate.oninput = function () {
+  document.querySelector(".rate-value").innerHTML = this.value;
+};
+pitch.oninput = function () {
+  document.querySelector(".pitch-value").innerHTML =this.value;
+}
 
 voicesSelect.addEventListener('change', speaking);
 
